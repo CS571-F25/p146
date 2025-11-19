@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Sorry!",
+    "type": "board_game",
+    "quantity": 1,
+    "pricePerDay": 1,
+    "availableMultiDay": false,
+    "canLeaveSac": false,
+    "lateFee": 2,
+    "lostFee": 10,
+    "img": "https://www.kroger.com/product/images/xlarge/front/0063050993812"
+  },
+  {
+    "id": 2,
+    "name": "Connect 4",
+    "type": "board_game",
+    "quantity": 2,
+    "pricePerDay": 1,
+    "availableMultiDay": false,
+    "canLeaveSac": false,
+    "lateFee": 2,
+    "lostFee": 10,
+    "img": "https://www.kroger.com/product/images/xlarge/front/0063050994044"
+  },
+  {
+    "id": 3,
+    "name": "Trouble",
+    "type": "board_game",
+    "quantity": 1,
+    "pricePerDay": 1,
+    "availableMultiDay": false,
+    "canLeaveSac": false,
+    "lateFee": 2,
+    "lostFee": 10,
+    "img": "https://www.meijer.com/content/dam/meijer/product/0630/50/9870/23/0630509870233_0_A1C1_0600.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Apples to Apples",
+    "type": "board_game",
+    "quantity": 1,
+    "pricePerDay": 1,
+    "availableMultiDay": false,
+    "canLeaveSac": false,
+    "lateFee": 2,
+    "lostFee": 10,
+    "img": "https://cdn11.bigcommerce.com/s-k3llvn/images/stencil/1280x1280/products/1118/2373/applestoapples__92379.1572615716.jpg?c=2"
+  },
+  {
+    "id": 5,
+    "name": "The Office Trivia Game",
+    "type": "board_game",
+    "quantity": 1,
+    "pricePerDay": 1,
+    "availableMultiDay": false,
+    "canLeaveSac": false,
+    "lateFee": 2,
+    "lostFee": 10,
+    "img": "https://u-mercari-images.mercdn.net/photos/m87784365334_1.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Yahtzee",
+    "type": "board_game",
+    "quantity": 1,
+    "pricePerDay": 1,
+    "availableMultiDay": false,
+    "canLeaveSac": false,
+    "lateFee": 2,
+    "lostFee": 10,
+    "img": "https://www.kroger.com/product/images/large/right/0063050932911"
+  },
+  {
+    "id": 7,
+    "name": "Monopoly",
+    "type": "board_game",
+    "quantity": 1,
+    "pricePerDay": 1,
+    "availableMultiDay": false,
+    "canLeaveSac": false,
+    "lateFee": 2,
+    "lostFee": 10,
+    "img": "https://www.kroger.com/product/images/xlarge/front/0019516614635"
+  },
+  {
+    "id": 8,
+    "name": "Chess / Checkers / Backgammon",
+    "type": "board_game",
+    "quantity": 1,
+    "pricePerDay": 1,
+    "availableMultiDay": false,
+    "canLeaveSac": false,
+    "lateFee": 2,
+    "lostFee": 10,
+    "img": "https://cdn.schoolspecialty.com/1357e580-789a-42d1-a223-b0f100275e33/034-3060_B_JPG%20Output.jpg?width=700&height=700&fit=bounds&canvas=700,700&bg-color=ffffff"
+  }
+]
