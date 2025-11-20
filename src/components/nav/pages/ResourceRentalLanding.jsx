@@ -24,7 +24,7 @@ export default function ResourceRentalLanding(props) {
             different avenues (including the Wisconsin Involvement Network, Google Docs, Google Sheets, and Google Forms)
             to work correctly; I think it would be interesting to merge all of these different aspects into one website,
             especially because the process includes an abundance of interactive elements (reservation form submission,
-            search feature for resources, and status checks for both items and students.</p>
+            search feature for resources, and status checks for both items and students.)</p>
         </Col>
       </Row>
     </Container>
