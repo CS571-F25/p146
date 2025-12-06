@@ -2,7 +2,7 @@ import { useRef, useContext } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
-export default function CheckoutForm() {
+export default function RequestForm() {
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -15,7 +15,7 @@ export default function CheckoutForm() {
   const paymentRef = useRef();
 
   return <div>
-    <h1>Checkout Form</h1>
+    <h1>Resource Rental Request Form</h1>
     < br />
 
     <h2>Reservation Information</h2>
@@ -36,7 +36,7 @@ export default function CheckoutForm() {
         <option value="personal">Personal Use</option>
       </select>
 
-      <Form.Label ref={itemRef} htmlFor="useType" style={{ marginTop: 20 }}>Which item would you like to reserve?</Form.Label>
+      <Form.Label ref={itemRef} htmlFor="useType" style={{ marginTop: 20 }}>Which item from your cart would you like to reserve?</Form.Label>
       <select className="form-select" aria-label="Item to reserve">
         <option defaultValue="open">Open this select menu</option>
         <option value="s">Sorry!</option>

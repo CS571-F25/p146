@@ -15,8 +15,7 @@ export default function CatalogCard(props) {
       <p>Price Per Day: ${props.pricePerDay.toFixed(2)}</p>
       <p>Quantity available for rent: {props.quantity}</p>
       <div className="d-flex gap-2">
-        <Button variant="primary">Select</Button>
-        <Button variant="primary">Rent</Button>
+        <Button style={{ backgroundColor: "red", borderColor: "red" }}>Add to Cart</Button>
       </div>
     </Card.Body>
   </Card>

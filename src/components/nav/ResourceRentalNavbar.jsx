@@ -20,8 +20,12 @@ export default function ResourceRentalNavbar(props) {
       <Navbar.Collapse id="responsive-navbar-nav" className="me-auto">
         <Nav>
           <Nav.Link as={Link} to="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/Availability">Availability</Nav.Link>
           <Nav.Link as={Link} to="/Catalog">Catalog</Nav.Link>
-          <Nav.Link as={Link} to="/CheckoutForm">Checkout Form</Nav.Link>
+          <Nav.Link as={Link} to="/Cart">Cart</Nav.Link>
+          <Nav.Link as={Link} to="/RequestForm">Request Form</Nav.Link>
+          <Nav.Link as={Link} to="/Policies">Policies</Nav.Link>
+          <Nav.Link as={Link} to="/Login">Login</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
