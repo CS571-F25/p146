@@ -13,7 +13,7 @@ export default function Logout() {
   async function handleLogout() {
     // fetch from local api
     try {
-      const res = await fetch('http://localhost:53708/api/logout', {
+      const res = await fetch('https://p146-backend.onrender.com/api/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
