@@ -36,7 +36,7 @@ export default function Login() {
 
     // fetch from local api
     try {
-      const res = await fetch('http://localhost:53707/api/login', {
+      const res = await fetch('http://localhost:53708/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

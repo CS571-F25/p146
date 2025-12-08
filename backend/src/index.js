@@ -3,7 +3,7 @@ import { applyRateLimiting, applyLooseCORSPolicy, applyBodyParsing, applyLogging
 import { initializeDatabase, addUser, verifyUser } from './database.js';
 
 const app = express();
-const PORT = 53707; 
+const PORT = 53708; 
 
 await initializeDatabase();
 
