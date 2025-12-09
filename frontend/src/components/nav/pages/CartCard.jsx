@@ -3,12 +3,25 @@ import { useState } from "react";
 
 export default function CartCard(props) {
 
+  const [quantityInCart, setQuantityInCart] = useState(JSON.parse(sessionStorage.getItem('quantityInCart')));
+
   function handleUnselect() {
-    // handle current list of saved cats
-    const currentSaved = JSON.parse(sessionStorage.getItem('savedItems'));
-    const newSaved = currentSaved.filter(s => s.id != props.id);
-    sessionStorage.setItem('savedItems', JSON.stringify(newSaved));
-    // handle quantity
+    // handle cart quantity
+    const currentQuantityInCart = JSON.parse(sessionStorage.getItem('quantityInCart'));
+    if (!currentQuantityInCart[props.name]) {
+      return;
+    }
+    currentQuantityInCart[props.name] -= 1;
+    sessionStorage.setItem('quantityInCart', JSON.stringify(currentQuantityInCart));
+    setQuantityInCart(currentQuantityInCart);
+
+    if (currentQuantityInCart[props.name] === 0) {
+      // handle current list of saved items
+      const currentSaved = JSON.parse(sessionStorage.getItem('savedItems'));
+      const newSaved = currentSaved.filter(s => s.id != props.id);
+      sessionStorage.setItem('savedItems', JSON.stringify(newSaved));
+    }
+    // handle catalog quantity
     const currentQuantity = JSON.parse(sessionStorage.getItem('quantityAvailable'));
     currentQuantity[props.name] += 1;
     sessionStorage.setItem('quantityAvailable', JSON.stringify(currentQuantity));
@@ -31,6 +44,7 @@ export default function CartCard(props) {
         <Card.Title>{props.name}</Card.Title>
       </div>
       <p>Price Per Day: ${props.pricePerDay.toFixed(2)}</p>
+      <p>Quantity in Cart: {quantityInCart[props.name]}</p>
       <div className="d-flex gap-2">
         <Button style={{ backgroundColor: "red", borderColor: "red" }} onClick={handleUnselect}>Remove from Cart</Button>
       </div>

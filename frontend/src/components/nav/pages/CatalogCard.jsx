@@ -15,13 +15,20 @@ export default function CatalogCard(props) {
     const quantityAvailable = JSON.parse(sessionStorage.getItem('quantityAvailable')) || {};
     return quantityAvailable[props.name] ?? props.quantity;
   });
+  const [quantityInCart, setQuantityInCart] = useState(() => {
+    const quantityInCart = JSON.parse(sessionStorage.getItem('quantityInCart')) || {};
+    return quantityInCart[props.name] ?? 0;
+  });
 
   function handleSaveToCart() {
     // check to see if items are saved to session. if not, start list
     const currentSaved = JSON.parse(sessionStorage.getItem('savedItems')) || [];
-    const newSaved = [...currentSaved, props];
-    sessionStorage.setItem('savedItems', JSON.stringify(newSaved));
-    // handle quantity
+    const itemExists = currentSaved.some(item => item.id === props.id);
+    if (!itemExists) {
+      const newSaved = [...currentSaved, props];
+      sessionStorage.setItem('savedItems', JSON.stringify(newSaved));
+    }
+    // handle quantity in catalog
     const currentQuantity = JSON.parse(sessionStorage.getItem('quantityAvailable')) || {};
     if (currentQuantity[props.name] === undefined) {
       currentQuantity[props.name] = props.quantity;
@@ -29,6 +36,14 @@ export default function CatalogCard(props) {
     currentQuantity[props.name] -= 1;
     sessionStorage.setItem('quantityAvailable', JSON.stringify(currentQuantity));
     setQuantity(currentQuantity[props.name]);
+    // handle quantity in cart
+    const currentQuantityInCart = JSON.parse(sessionStorage.getItem('quantityInCart')) || {};
+    if (currentQuantityInCart[props.name] === undefined) {
+      currentQuantityInCart[props.name] = 0;
+    }
+    currentQuantityInCart[props.name] += 1;
+    sessionStorage.setItem('quantityInCart', JSON.stringify(currentQuantityInCart));
+    setQuantityInCart(currentQuantityInCart[props.name]);
     // handle available
     if (currentQuantity[props.name] === 0) {
       setIsAvailable(false);
