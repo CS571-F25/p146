@@ -38,6 +38,6 @@ export default function Logout() {
   }
 
   return <>
-    <h1>Please wait while we log you out!frontend/src/components/nav/pages/Availability.jsx</h1>
+    <h1>Please wait while we log you out!</h1>
   </>
 }

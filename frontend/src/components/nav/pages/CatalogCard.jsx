@@ -15,10 +15,6 @@ export default function CatalogCard(props) {
     const quantityAvailable = JSON.parse(localStorage.getItem('quantityAvailable')) || {};
     return quantityAvailable[props.name] ?? props.quantity;
   });
-  const [quantityInCart, setQuantityInCart] = useState(() => {
-    const quantityInCart = JSON.parse(localStorage.getItem('quantityInCart')) || {};
-    return quantityInCart[props.name] ?? 0;
-  });
 
   function handleSaveToCart() {
     // check to see if items are saved to local. if not, start list
@@ -43,9 +39,10 @@ export default function CatalogCard(props) {
     }
     currentQuantityInCart[props.name] += 1;
     localStorage.setItem('quantityInCart', JSON.stringify(currentQuantityInCart));
-    setQuantityInCart(currentQuantityInCart[props.name]);
+    // setQuantityInCart(currentQuantityInCart[props.name]);
     // handle available
-    if (currentQuantity[props.name] === 0) {
+    const updatedQuantity = JSON.parse(localStorage.getItem('quantityAvailable'));
+    if (updatedQuantity[props.name] === 0) {
       setIsAvailable(false);
       localStorage.setItem(`${props.name}_available`, JSON.stringify(false));
     }

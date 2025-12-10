@@ -82,6 +82,7 @@ export default function RequestForm() {
     setDays(true);
     setDate(true);
     setAllChecked(true);
+    setPayment(true);
 
     let hasError = false;
     // make sure all fields are filled out
@@ -111,8 +112,8 @@ export default function RequestForm() {
       hasError = true;
     }
     const reserveQuantity = parseInt(quantityRef.current.value);
-    const quantityInCart = JSON.parse(localStorage.getItem('quantityInCart'))
-    if (!reserveQuantity || isNaN(reserveQuantity) || reserveQuantity <= 0 || reserveQuantity != quantityInCart[itemName]) {
+    const quantityInCart = JSON.parse(localStorage.getItem('quantityInCart')) || {};
+    if (!reserveQuantity || isNaN(reserveQuantity) || reserveQuantity <= 0 || reserveQuantity !== quantityInCart[itemName]) {
       setQuantity(false);
       hasError = true;
     }
@@ -121,7 +122,7 @@ export default function RequestForm() {
       setDays(false);
       hasError = true;
     }
-    const startDate = new Date(resDayRef.current.value);
+    const startDate = new Date(resDayRef.current.value + 'T00:00:00');
     if (!resDayRef.current.value || isNaN(startDate.getTime())) {
       setDate(false);
       hasError = true;
@@ -160,6 +161,11 @@ export default function RequestForm() {
     // make sure save list is updated
     const newSaved = savedItems.filter(i => i.name != itemName);
     localStorage.setItem('savedItems', JSON.stringify(newSaved));
+
+    // make sure cart quantity is updated
+    const currentQuantityInCart = JSON.parse(localStorage.getItem('quantityInCart')) || {};
+    delete currentQuantityInCart[itemName];
+    localStorage.setItem('quantityInCart', JSON.stringify(currentQuantityInCart));
 
     // clear draft after successful submission
     localStorage.removeItem('formDraft');
