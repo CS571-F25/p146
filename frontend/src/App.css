@@ -1,8 +1,49 @@
+.rbc-event {
+  background-color: #dc3545 !important;
+  border: none !important;
+}
+
+.rbc-event:hover {
+  background-color: #c82333 !important;
+}
+
+.rbc-event.rbc-selected {
+  background-color: #bd2130 !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.form-control,
+.form-select {
+  caret-color: #dc3545;
+}
+
+.form-check-input:checked {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+/* Optional: Make checkbox focus glow red */
+.form-check-input:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
 }
 
 .logo {
@@ -10,12 +51,6 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {

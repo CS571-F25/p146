@@ -35,8 +35,8 @@ export default function Availability() {
     <h1>Availability Calendar</h1>
     <p>View all current item reservations below:</p>
     <div style={{ height: "600px", margin: "20px 0" }}>
-      <Calendar localizer={localizer} events={reservations}
-        startAccessor="start" endAccessor="end" style={{ height: "100%" }} />
+      <Calendar localizer={localizer} events={reservations} style={{ height: "100%" }}
+        startAccessor="start" endAccessor="end" />
     </div>
 
     <h2 style={{ marginTop: "40px" }}>All Reservations</h2>

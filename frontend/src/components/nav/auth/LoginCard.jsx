@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 
 import LoginStatusContext from "../../../contexts/LoginStatusDataContext";
 import users from "../../../data/users.json";
+import '../../../App.css';
 
 export default function Login() {
 
@@ -106,13 +107,13 @@ export default function Login() {
       <Form.Label htmlFor="passwordLogin">Password</Form.Label>
       <Form.Control id="passwordLogin" type="password" ref={passwordRef}></Form.Control>
       <br />
-      <Button type="submit">{isRegistering ? "Register" : "Login"}</Button>
+      <Button style={{ backgroundColor: "red", border: "none" }} type="submit">{isRegistering ? "Register" : "Login"}</Button>
       <br />
       {isRegistering ? (
-        <p>Already have an account?{" "}<a class="link-opacity-100" href="#"
+        <p>Already have an account?{" "}<a class="link-opacity-100" href="#" style={{ color: "red" }}
           onClick={(e) => { e.preventDefault(); setIsRegistering(false); }}>Login here.</a></p>
       ) : (
-        <p>Need an account?{" "}<a class="link-opacity-100" href="#"
+        <p>Need an account?{" "}<a class="link-opacity-100" href="#" style={{ color: "red" }}
           onClick={(e) => { e.preventDefault(); setIsRegistering(true); }}>Register here.</a></p>
       )}
     </Form>
