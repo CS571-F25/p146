@@ -3,31 +3,31 @@ import { useState } from "react";
 
 export default function CartCard(props) {
 
-  const [quantityInCart, setQuantityInCart] = useState(JSON.parse(sessionStorage.getItem('quantityInCart')));
+  const [quantityInCart, setQuantityInCart] = useState(JSON.parse(localStorage.getItem('quantityInCart')));
 
   function handleUnselect() {
     // handle cart quantity
-    const currentQuantityInCart = JSON.parse(sessionStorage.getItem('quantityInCart'));
+    const currentQuantityInCart = JSON.parse(localStorage.getItem('quantityInCart'));
     if (!currentQuantityInCart[props.name]) {
       return;
     }
     currentQuantityInCart[props.name] -= 1;
-    sessionStorage.setItem('quantityInCart', JSON.stringify(currentQuantityInCart));
+    localStorage.setItem('quantityInCart', JSON.stringify(currentQuantityInCart));
     setQuantityInCart(currentQuantityInCart);
 
     if (currentQuantityInCart[props.name] === 0) {
       // handle current list of saved items
-      const currentSaved = JSON.parse(sessionStorage.getItem('savedItems'));
+      const currentSaved = JSON.parse(localStorage.getItem('savedItems'));
       const newSaved = currentSaved.filter(s => s.id != props.id);
-      sessionStorage.setItem('savedItems', JSON.stringify(newSaved));
+      localStorage.setItem('savedItems', JSON.stringify(newSaved));
     }
     // handle catalog quantity
-    const currentQuantity = JSON.parse(sessionStorage.getItem('quantityAvailable'));
+    const currentQuantity = JSON.parse(localStorage.getItem('quantityAvailable'));
     currentQuantity[props.name] += 1;
-    sessionStorage.setItem('quantityAvailable', JSON.stringify(currentQuantity));
+    localStorage.setItem('quantityAvailable', JSON.stringify(currentQuantity));
     // handle available
     if (currentQuantity[props.name] > 0) {
-      sessionStorage.setItem(`${props.name}_available`, JSON.stringify(true));
+      localStorage.setItem(`${props.name}_available`, JSON.stringify(true));
     }
     // trigger render
     props.apply();

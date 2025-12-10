@@ -9,7 +9,7 @@ export default function ResourceRentalNavbar(props) {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Brand as={Link} to="/">
         <img
-          alt="react logo"
+          alt="uw logo"
           src={crest}
           width="30"
           height="30"
@@ -23,7 +23,7 @@ export default function ResourceRentalNavbar(props) {
           <Nav.Link as={Link} to="/Availability">Availability</Nav.Link>
           <Nav.Link as={Link} to="/Catalog">Catalog</Nav.Link>
           <Nav.Link as={Link} to="/Cart">Cart</Nav.Link>
-          <Nav.Link as={Link} to="/RequestForm">Request Form</Nav.Link>
+          <Nav.Link as={Link} to="/RequestForm">Checkout Form</Nav.Link>
           <Nav.Link as={Link} to="/Policies">Policies</Nav.Link>
           <Nav.Link as={Link} to="/Logout">Logout</Nav.Link>
         </Nav>

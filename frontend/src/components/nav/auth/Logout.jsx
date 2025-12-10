@@ -10,6 +10,10 @@ export default function Logout() {
   // navigation
   const navigate = useNavigate();
 
+  useEffect(() => {
+    handleLogout();
+  }, []);
+
   async function handleLogout() {
     // fetch from local api
     try {
@@ -23,7 +27,7 @@ export default function Logout() {
       if (res.status === 200) {
         alert("Your logout was successful!");
         setLoginStatus(false);
-        sessionStorage.setItem('loginStatus', JSON.stringify(false));
+        localStorage.setItem('loginStatus', JSON.stringify(false));
         navigate('/');
       } else {
         alert(data.msg || "Login failed, please try again!");
@@ -34,7 +38,6 @@ export default function Logout() {
   }
 
   return <>
-    <h1>Logout</h1>
-    <Button onClick={handleLogout}>Logout</Button>
+    <h1>Please wait while we log you out!</h1>
   </>
 }

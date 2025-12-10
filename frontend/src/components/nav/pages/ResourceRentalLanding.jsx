@@ -18,7 +18,7 @@ export default function ResourceRentalLanding(props) {
 
       <Modal show={modalVisible} onHide={() => { }} backdrop="static" keyboard={false} centered size="lg">
         <Modal.Header>
-          <Modal.Title>Login Here!</Modal.Title>
+          <Modal.Title>Welcome!</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ textAlign: "center" }}>
           <LoginCard />
@@ -62,10 +62,10 @@ export default function ResourceRentalLanding(props) {
           </p>
           <h2>Step 5</h2>
           <p>
-            Complete the Resource Rental <strong>Request Form</strong>, which will notify us at SOLI of the item that you wish to
+            Complete the Resource Rental <strong>Checkout Form</strong>, which will notify us at SOLI of the item that you wish to
             rent, your method of payment (which will be made when you pick up the item at our Front Desk, located at 333 East Campus
-            mall), and the date of your reservation. Upon submission, we will review your request form. If it is approved, you may
-            pick up the item you specified; if it is denied, please make any necessary updates an resubmit the form.
+            mall), and the date of your reservation. Upon submission, you may pick up the item you specified on the start date that
+            you provided.
           </p>
           < br />
         </Col>

@@ -12,17 +12,17 @@ export default function Catalog() {
   const [item, setItem] = useState("");
   const [category, setCategory] = useState("");
 
-  // get session storage info on mount
+  // get loacl storage info on mount
   useEffect(() => {
     // get saved items upon return from different page
-    const saved = JSON.parse(sessionStorage.getItem('savedItems')) || [];
+    const saved = JSON.parse(localStorage.getItem('savedItems')) || [];
     setSavedItems(saved);
     setResources(resourcesData);
   }, []);
 
   function applySave() {
     // get saved items
-    const saved = JSON.parse(sessionStorage.getItem('savedItems'));
+    const saved = JSON.parse(localStorage.getItem('savedItems'));
     // set in use state, triggers render
     setSavedItems(saved);
   }
@@ -58,8 +58,9 @@ export default function Catalog() {
         onChange={(e) => { setCategory(e.target.value) }}
       />
       <br />
-      <Button variant="neutral" onClick={clearSearch}>Reset Search</Button>
+      <Button variant="neutral" style={{ color: "red" }} onClick={clearSearch}>Reset Search</Button>
     </Form>
+    <br />
     <Container>
       <Row>
         {

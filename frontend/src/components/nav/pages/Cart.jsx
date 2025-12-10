@@ -7,20 +7,20 @@ import { Container, Row, Col } from "react-bootstrap";
 export default function Cart() {
 
   const [resources, setResources] = useState([]);
-  // get saved item from session
+  // get saved item from local
   const [savedItems, setSavedItems] = useState([]);
 
   useEffect(() => {
-    // get saved items from sessions
-    const saved = JSON.parse(sessionStorage.getItem('savedItems')) || [];
+    // get saved items from local
+    const saved = JSON.parse(localStorage.getItem('savedItems')) || [];
     // save to use state
     setSavedItems(saved);
     setResources(resourcesData);
   }, []);
 
   function applyUnselect() {
-    // get saved items from session
-    const saved = JSON.parse(sessionStorage.getItem('savedItems'));
+    // get saved items from local
+    const saved = JSON.parse(localStorage.getItem('savedItems'));
     // set in use state
     setSavedItems(saved);
   }

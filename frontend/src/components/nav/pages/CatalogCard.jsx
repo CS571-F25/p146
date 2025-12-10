@@ -5,49 +5,49 @@ export default function CatalogCard(props) {
 
   // const [isItemSaved, setIsItemSaved] = useState(false);
   const [isAvailable, setIsAvailable] = useState(() => {
-    const stored = sessionStorage.getItem(`${props.name}_available`);
+    const stored = localStorage.getItem(`${props.name}_available`);
     if (stored !== null) {
       return JSON.parse(stored);
     }
     return true;
   });
   const [quantity, setQuantity] = useState(() => {
-    const quantityAvailable = JSON.parse(sessionStorage.getItem('quantityAvailable')) || {};
+    const quantityAvailable = JSON.parse(localStorage.getItem('quantityAvailable')) || {};
     return quantityAvailable[props.name] ?? props.quantity;
   });
   const [quantityInCart, setQuantityInCart] = useState(() => {
-    const quantityInCart = JSON.parse(sessionStorage.getItem('quantityInCart')) || {};
+    const quantityInCart = JSON.parse(localStorage.getItem('quantityInCart')) || {};
     return quantityInCart[props.name] ?? 0;
   });
 
   function handleSaveToCart() {
-    // check to see if items are saved to session. if not, start list
-    const currentSaved = JSON.parse(sessionStorage.getItem('savedItems')) || [];
+    // check to see if items are saved to local. if not, start list
+    const currentSaved = JSON.parse(localStorage.getItem('savedItems')) || [];
     const itemExists = currentSaved.some(item => item.id === props.id);
     if (!itemExists) {
       const newSaved = [...currentSaved, props];
-      sessionStorage.setItem('savedItems', JSON.stringify(newSaved));
+      localStorage.setItem('savedItems', JSON.stringify(newSaved));
     }
     // handle quantity in catalog
-    const currentQuantity = JSON.parse(sessionStorage.getItem('quantityAvailable')) || {};
+    const currentQuantity = JSON.parse(localStorage.getItem('quantityAvailable')) || {};
     if (currentQuantity[props.name] === undefined) {
       currentQuantity[props.name] = props.quantity;
     }
     currentQuantity[props.name] -= 1;
-    sessionStorage.setItem('quantityAvailable', JSON.stringify(currentQuantity));
+    localStorage.setItem('quantityAvailable', JSON.stringify(currentQuantity));
     setQuantity(currentQuantity[props.name]);
     // handle quantity in cart
-    const currentQuantityInCart = JSON.parse(sessionStorage.getItem('quantityInCart')) || {};
+    const currentQuantityInCart = JSON.parse(localStorage.getItem('quantityInCart')) || {};
     if (currentQuantityInCart[props.name] === undefined) {
       currentQuantityInCart[props.name] = 0;
     }
     currentQuantityInCart[props.name] += 1;
-    sessionStorage.setItem('quantityInCart', JSON.stringify(currentQuantityInCart));
+    localStorage.setItem('quantityInCart', JSON.stringify(currentQuantityInCart));
     setQuantityInCart(currentQuantityInCart[props.name]);
     // handle available
     if (currentQuantity[props.name] === 0) {
       setIsAvailable(false);
-      sessionStorage.setItem(`${props.name}_available`, JSON.stringify(false));
+      localStorage.setItem(`${props.name}_available`, JSON.stringify(false));
     }
     // trigger render
     props.apply();

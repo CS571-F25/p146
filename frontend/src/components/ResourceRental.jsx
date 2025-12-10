@@ -8,15 +8,21 @@ import ReservationsContext from "../contexts/ReservationsContext";
 
 export default function ResourceRental() {
 
-  // TODO placeholder
-  const [loginStatus, setLoginStatus] = useState(false);
+  // login status and reservations saved in constext
+  const [loginStatus, setLoginStatus] = useState(() => {
+    const saved = localStorage.getItem('loginStatus');
+    return saved ? JSON.parse(saved) : false;
+  });
   const [reservations, setReservations] = useState(() => {
-    const saved = sessionStorage.getItem('reservations');
+    const saved = localStorage.getItem('reservations');
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    sessionStorage.setItem('reservations', JSON.stringify(reservations));
+    localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
+  }, [loginStatus]);
+  useEffect(() => {
+    localStorage.setItem('reservations', JSON.stringify(reservations));
   }, [reservations]);
 
   return <div>

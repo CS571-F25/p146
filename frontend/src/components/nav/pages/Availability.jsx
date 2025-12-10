@@ -15,16 +15,16 @@ export default function Availability() {
     // remove reservation
     setReservations(prev => prev.filter(r => r.id != reservationId));
     // update catalog quantity
-    const quantityAvailable = JSON.parse(sessionStorage.getItem('quantityAvailable')) || {};
+    const quantityAvailable = JSON.parse(localStorage.getItem('quantityAvailable')) || {};
     if (quantityAvailable[itemName] !== undefined) {
       quantityAvailable[itemName] += parseInt(quantity);
     } else {
       quantityAvailable[itemName] = (quantityAvailable[itemName] || 0) + parseInt(quantity);
     }
-    sessionStorage.setItem('quantityAvailable', JSON.stringify(quantityAvailable));
+    localStorage.setItem('quantityAvailable', JSON.stringify(quantityAvailable));
     // update catalog availability
     if (quantityAvailable[itemName] > 0) {
-      sessionStorage.removeItem(`${itemName}_available`);
+      localStorage.removeItem(`${itemName}_available`);
     }
 
     // for debugging
