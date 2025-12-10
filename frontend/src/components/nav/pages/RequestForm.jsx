@@ -278,7 +278,7 @@ export default function RequestForm() {
       )}
       <br />
 
-      <Button type="submit">Submit</Button>
+      <Button style={{ backgroundColor: "red", border: "none" }} type="submit">Submit</Button>
     </Form>
   </div>
 }
